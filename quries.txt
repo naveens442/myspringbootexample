@@ -1,0 +1,5 @@
+select t.* from(SELECT
+regexp_replace('test=300^test1=301^test2=300^', '.*test=([^\^]+).*', '\1') test,
+regexp_replace('test=300^test1=301^test2=300^', '.*test1=([^\^]+).*', '\1') test1,
+regexp_replace('test=300^test1=301^test2=300^', '.*test2=([^\^]+).*', '\1') test2
+FROM dual)  t where t.test='';
